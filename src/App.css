@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   padding: 10px;
+  color: #0277bd;
 }
 
 .App-logo {
@@ -32,8 +33,7 @@
   flex: 1 auto;
   border-radius: 2%;
   padding: 10px;
-  border-color: none;
-  border: none;
+  border-color: #0277bd;
 }
 .button{
   flex: 1 auto;
@@ -80,6 +80,7 @@
   text-align: right;
   display: flex;
   justify-content: right;
+  float: right;
 }
 .deleteButton{
   padding: 10px;
@@ -93,4 +94,10 @@
 }
 .deleteButton:hover{
   background-color: #29b6f6;
+}
+.input:required {
+  box-shadow:none;
+}
+.input:invalid {
+  box-shadow:0 0 0px red;
 }

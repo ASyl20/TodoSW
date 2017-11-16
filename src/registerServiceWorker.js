@@ -40,6 +40,8 @@ export default function register() {
         registerValidSW(swUrl);
       }
     });
+  }else{
+    console.log('SW probleme :',process.env.NODE_ENV)
   }
 }
 
@@ -47,6 +49,7 @@ function registerValidSW(swUrl) {
   navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
+      console.log('SW enregistré')
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         installingWorker.onstatechange = () => {

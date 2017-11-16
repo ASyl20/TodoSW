@@ -3,6 +3,8 @@ import './App.css';
 import './animate.css';
 import Note from './components/Note';
 
+
+
 class App extends Component {
 
   state = {
@@ -25,6 +27,7 @@ class App extends Component {
     this.setState({list:notes})
     this.setState({notes:listP})
     }
+    
     
   }
 
@@ -85,16 +88,24 @@ class App extends Component {
   // Supprime une note 
   deleteNote(key){
    
-    if(key === this.state.notes.length)
-       key -=1
+    if(key === this.state.list.length & key >= 0 ){
+      key--;
+    }
+    if(key > this.state.list.length){
+      key--;
+    }
+      
     this.setState({modif:false})
     this.setState({delete:true})
     this.state.list.splice(key,1);
     this.state.notes.splice(key,1);
+    // console.log(this.state.notes)
     this.setState({list:this.state.list});
     localStorage.setItem('list',JSON.stringify(this.state.notes))
     console.log('delete')
     // console.log(this.state.delete)
+    // console.log(this.state.notes.length)
+    // console.log(this.state.list.length)
     // console.log(key)
     }
 
