@@ -91,22 +91,25 @@ class App extends Component {
     if(key === this.state.list.length & key >= 0 ){
       key--;
     }
-    if(key > this.state.list.length){
-      key--;
-    }
-      
+    
     this.setState({modif:false})
     this.setState({delete:true})
-    this.state.list.splice(key,1);
-    this.state.notes.splice(key,1);
-    // console.log(this.state.notes)
-    this.setState({list:this.state.list});
+//this.state.list.splice(key,1);
+  //  this.state.notes.splice(key,1);
+    console.log(this.state.notes.splice(key,1))
+    let notes  = this.state.notes.map((val,key)=>{
+      return <Note key={key} keyval={key} val={val} delete={()=>this.deleteNote(key)}  edit={()=>this.goToEdit(key)}/>
+    })
+    this.setState({list:notes})
+    //console.log(this.state.list.splice(key,1))
+    //this.setState({list:this.state.list});
+    this.setState({notes:this.state.notes})
     localStorage.setItem('list',JSON.stringify(this.state.notes))
     console.log('delete')
-    // console.log(this.state.delete)
-    // console.log(this.state.notes.length)
-    // console.log(this.state.list.length)
-    // console.log(key)
+    console.log(this.state.delete)
+    console.log(this.state.notes.length)
+    console.log(this.state.list.length)
+    console.log(key)
     }
 
   render() {
